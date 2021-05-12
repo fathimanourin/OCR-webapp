@@ -6,7 +6,7 @@ import os
 
 #img = cv2.imread('hand.png')
 # Adding custom options
-custom_config = r'--oem 3 --psm 1'
+custom_config = r'--oem 3 --psm 1 -c preserve_interword_spaces=1'
 UPLOAD_FOLDER = './static/uploads/'
 #ocr_.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 #ans=pytesseract.image_to_string(img, config=custom_config)
@@ -47,7 +47,7 @@ def ocr_driver_old(image):
 def ocr_fun(fname):
     image = cv2.imread(os.path.join(UPLOAD_FOLDER, fname))
     ocr1=pytesseract.image_to_string(image, config=custom_config)
-    print(ocr1)
+    #print(ocr1)
     return ocr1
 
 
