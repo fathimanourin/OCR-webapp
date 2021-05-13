@@ -1,0 +1,110 @@
+<!doctype html><head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/48a752667d.js" crossorigin="anonymous"></script>
+    <title>Upload</title>
+  </head>
+  <body  class="">
+  <nav class="navbar navbar-expand-lg navbar-light bg-dark text-white" style="background-color: #fff5ee; color: white;">
+    <a class="navbar-brand text-white " href="/home" style="font-size: 2rem;margin-left: 15%;"><i class="fas fa-home"></i> OCR</a>
+    <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto" style="font-size: 1.5rem;margin-right: 17%; ">
+        <li class="nav-item ">
+          <a class="nav-link mr-5 text-white" href="/upload">Use Our Tool</a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link mr-5 text-white" href="/team">Meet Our Team</a>
+        </li>
+   
+  
+      </ul>
+  
+    </div>
+  </nav>
+
+  <div class="" style="padding-top: 2%;padding-bottom: 2%;">
+    <div class="bg-white" style="margin-top:0%; ;margin-left: 2%;margin-right: 2%;">
+        <div class="jumbotron jumbotron-fluid text-center mb-0 " style='background-color:#F2F2F2'>
+            <div class="container">
+              <h1 class="display-4 "> UPLOAD FILE </h1>
+              <p class="lead">upload your image files here</p>
+            </div>
+        </div>
+    </div>
+    
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for msg in messages %}
+                <p class="alert alert-danger mx-4 my-2 text-center">{{msg}}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    
+    
+  </div>
+
+   <div class="parallax pb-5" >
+      <div style="height: 5rem;"></div>
+      <div class="p-2" style="background-color:rgb(10,45,60,0.2);" >
+        <div class="requirements container " style="padding-top:5%;padding-bottom:5%;padding-left: 10%; font-size: 15px; background-color:#f8fbff;">
+            <p class="" style="font-size: 25px"><i class="fas fa-exclamation-circle"></i>  Requirements </p>
+            <p class="p-0 m-0">- Supported file formats - jpg,jpeg,png</p>
+            <p class="p-0 m-0">- Image preferably aligned in horizontal direction</p>
+            <p class="p-0 m-0">- Can also reasonbly handle vertical input images</p>
+            <p class="p-0 m-0">- Preferred input language : English</p>
+
+
+
+    
+        </div>
+      </div>
+
+      <form class="mt-5" method=post enctype=multipart/form-data>
+    		<div class="row">
+    			<div class="col-md-2 col-0"></div>
+
+    			<input class=" col-md-4 col-12 btn btn-dark "  type=file name=file>
+    			<div class="col-md-2 col-0"></div>
+    	 		<input class="col-md-2 col-12 btn btn-success" type=submit value=Upload>
+    		</div>
+    	</form>
+  </div>
+            <!-- Footer -->
+            <footer id="footer" class="" style='background-color:#343A40; color:white; width:100%;margin-top:0%; text-align:center'>
+                OCR Web Application
+                 </footer>
+                     
+  
+  
+  
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+  </html>
+
+  <style>
+    html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+</style>
+
+<style>
+.parallax {
+  /* The image used */
+  background-image: url("https://www.cutewallpaper.org/21/white-1920x1080/60+-Plain-White-Wallpapers-on-WallpaperPlay.jpg");
+
+  /* Set a specific height */
+  height: 100%;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+</style>

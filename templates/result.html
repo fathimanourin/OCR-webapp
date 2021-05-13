@@ -1,0 +1,173 @@
+<!DOCTYPE html>  
+<html>  
+ <head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/48a752667d.js" crossorigin="anonymous"></script>
+  <title>Result</title>
+ </head>
+ <body>
+ <nav class="navbar navbar-expand-lg navbar-light bg-dark text-white" style="background-color: #fff5ee; color: white;">
+  <a class="navbar-brand text-white " href="/home" style="font-size: 2rem;margin-left: 15%;"><i class="fas fa-home"></i> OCR</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto" style="font-size: 1.5rem;margin-right: 17%; ">
+      <li class="nav-item ">
+        <a class="nav-link mr-5 text-white" href="/upload">Use Our Tool</a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link mr-5 text-white" href="/team">Meet Our Team</a>
+      </li>
+ 
+
+    </ul>
+
+  </div>
+</nav>
+ 
+ <div class=""> 
+
+
+    <div class="" style="padding-top: 2%;padding-bottom: 2%;">
+      <div class="bg-white" style="margin-top:0%; ;margin-left: 2%;margin-right: 2%;">
+          <div class="jumbotron jumbotron-fluid text-center mb-0 " style='background-color:#F2F2F2'>
+              <div class="container">
+                <h1 class="display-4 "> OCR OUTPUT </h1>
+                <p class="lead">Select the best result from the following</p>
+              </div>
+          </div>
+      </div>
+    </div>
+
+    
+    <div class="bg-white mb-3 row justify-content-center">
+            <a class="btn btn-primary my-0" href="" role="button" >Scan again</a>
+    </div>
+    
+    <div class="parallax">
+
+      <div style= 'height:2rem'></div>
+
+      <div class="p-2" style="background-color:rgb(10,45,60,0.2);" >
+        <div class="requirements container bg-white text-center" style="padding-top:1%;padding-bottom:1%; font-size: 15px;">
+            <h4 class="font-weight-normal"> The text extracted without any filtering</h4>
+            <div>
+              <textarea id="textarea1" >{{answer1}}</textarea>
+            </div>
+            <button type="button" class="btn btn-sm btn-info"  onclick="copy1()">Click to copy to clipboard</button>
+        </div>
+      </div>
+
+
+        <div style= 'height:2rem'></div>
+          <!--
+           
+          -->
+          <div class="bg-white" style="background-color:rgb(10,45,60,0.2);padding-top: 5%;padding-bottom: 5%;" >
+            <div class="requirements container bg-light text-center" style="padding-top:1%;padding-bottom:1%;font-size: 15px;">
+              <h4 class="font-weight-normal"> The text extracted after noise removal using median filter</h4>
+              <div>
+                <textarea id="textarea2" >{{answer2}}</textarea>
+              </div>
+              <button type="button" class="btn btn-sm btn-info"  onclick="copy2()">Click to copy to clipboard</button>
+            </div>
+          </div>
+
+
+
+          <div style= 'height:2rem'></div>
+
+          <div class="p-2" style="background-color:rgb(10,45,60,0.2);" >
+            <div class="requirements container bg-white text-center" style="padding-top:1%;padding-bottom:1%; font-size: 15px;">
+                <h4 class="font-weight-normal"> The text extracted after erosion followed by dilation</h4>
+                <div>
+                  <textarea id="textarea3" >{{answer3}}</textarea>
+                </div>
+                <button type="button" class="btn btn-sm btn-info"  onclick="copy3()">Click to copy to clipboard</button>
+            </div>
+          </div>
+
+          <div style= 'height:2rem'></div>
+    </div>
+
+
+
+</div> 
+<footer id="footer" style='background-color:#343A40;color:white; width:100%;margin-top:0%; text-align:center'>
+  OCR Web Application
+   </footer>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html> 
+
+<style>
+.org_body{
+  padding: 2% 2%;
+  text-align:center;
+}
+textarea{
+width:60%;
+height:15rem;
+margin-top:2%;
+margin-bottom: 2%;
+}
+.btn{
+  width:50%;
+  margin-top:2%;
+margin-bottom: 2%;
+}
+.oneunit{
+  background-color:rgb(30,45,60,0.2);
+  padding-top:2%;
+ }
+
+</style>
+<script>
+function copy1() {
+  let textarea = document.getElementById("textarea1");
+  textarea.select();
+  document.execCommand("copy");
+}
+function copy2() {
+  let textarea = document.getElementById("textarea2");
+  textarea.select();
+  document.execCommand("copy");
+}
+function copy3() {
+  let textarea = document.getElementById("textarea3");
+  textarea.select();
+  document.execCommand("copy");
+}
+</script>
+
+
+<!-- <p>{{para}}</p>
+
+{% for para in answer %}
+{{para}}
+{% endfor %} -->
+
+<style>
+.parallax {
+  /* The image used */
+  background-image: url("https://www.cutewallpaper.org/21/white-1920x1080/60+-Plain-White-Wallpapers-on-WallpaperPlay.jpg");
+
+
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+</style>
