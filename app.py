@@ -15,7 +15,11 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 @app.route('/')
 @app.route('/home')
 def home():
-    return (f'home')
+    return render_template('home.html')
+
+@app.route('/team')
+def team():
+    return render_template('team.html')    
 
 
 def allowed_file(filename):
@@ -40,12 +44,14 @@ def upload_file():
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             #answer=ocr_fun(filename).replace('\n','<b>')
-            answer = ocr_fun(filename).split('\n')
-            #print(answer)
-            #os.remove(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            return render_template('result.html',answer=answer)
+            #answer = ocr_fun(filename).split('\n')
+            #answer =list(filter(lambda a: a != ('\n' or ''), answer))
+            answer1,answer2,answer3 = ocr_driver(filename)
+            print(answer3)
+            os.remove(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            return render_template('result.html',answer1=answer1,answer2=answer2,answer3=answer3)
         else:
-            flash('select image format')
+            flash('Incorrect image format.....SUPPORTED FORMATS = {png, jpg, jpeg}')
             return render_template('upload.html')
     else:
         return render_template('upload.html')
