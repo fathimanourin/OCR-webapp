@@ -19,3 +19,5 @@ and after morphological operations like erosion followed by dilation, and the us
 
 >Flask
 
+### HomePage
+![Alt text](/screenshots/ss1.png?raw=true "Home Page")
