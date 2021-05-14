@@ -21,3 +21,6 @@ and after morphological operations like erosion followed by dilation, and the us
 
 ### HomePage
 ![Alt text](/screenshots/ss1.png?raw=true "Home Page")
+
+----------------------------------------------------------------
+![Alt text](/screenshots/screenrecording.gif?raw=true "Demo")
